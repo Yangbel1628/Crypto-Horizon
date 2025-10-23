@@ -32,14 +32,17 @@ const CoinInfo = ({ coin }) => {
     const fetchHistoricData = async () => {
       try {
         setLoading(true);
-        const { data } = await axios.get(HistoricalChart(coin.id, days, currency), {
+        // ✅ Normalize currency to lowercase for CoinGecko API
+        const normalizedCurrency = currency.toLowerCase();
+        const { data } = await axios.get(HistoricalChart(coin.id, days, normalizedCurrency), {
           signal: controller.signal,
         });
         setHistoricData(data.prices);
         setLoading(false);
       } catch (error) {
         if (error.name === "CanceledError") return;
-        console.error(error);
+        console.error("Error fetching historic data:", error);
+        setLoading(false);
       }
     };
 
@@ -48,8 +51,8 @@ const CoinInfo = ({ coin }) => {
   }, [coin?.id, days, currency]);
 
   if (loading) return <div className="loader">Loading...</div>;
+  if (!historicData.length) return <div className="loader">No data available</div>;
 
-  // ✅ Determine if price increased or decreased
   const isPriceUp = historicData[historicData.length - 1][1] >= historicData[0][1];
 
   return (
@@ -70,10 +73,8 @@ const CoinInfo = ({ coin }) => {
             {
               data: historicData.map((point) => point[1]),
               label: `Price (Past ${days} Days) in ${currency}`,
-              borderColor: isPriceUp ? "#00ff66" : "#ff3333", // 💚 Green if up, ❤️ Red if down
-              backgroundColor: isPriceUp
-                ? "rgba(0, 255, 102, 0.1)"
-                : "rgba(255, 51, 51, 0.1)",
+              borderColor: isPriceUp ? "#00ff66" : "#ff3333",
+              backgroundColor: isPriceUp ? "rgba(0,255,102,0.1)" : "rgba(255,51,51,0.1)",
               fill: true,
               tension: 0.3,
               pointRadius: 2,
@@ -95,25 +96,15 @@ const CoinInfo = ({ coin }) => {
             },
           },
           scales: {
-            x: {
-              ticks: { color: "#fff" },
-              grid: { color: "rgba(255,255,255,0.1)" },
-            },
-            y: {
-              ticks: { color: "#fff" },
-              grid: { color: "rgba(255,255,255,0.1)" },
-            },
+            x: { ticks: { color: "#fff" }, grid: { color: "rgba(255,255,255,0.1)" } },
+            y: { ticks: { color: "#fff" }, grid: { color: "rgba(255,255,255,0.1)" } },
           },
         }}
       />
 
       <div className="chart-buttons">
         {chartDays.map((day) => (
-          <SelectButton
-            key={day.value}
-            selected={day.value === days}
-            onClick={() => setDays(day.value)}
-          >
+          <SelectButton key={day.value} selected={day.value === days} onClick={() => setDays(day.value)}>
             {day.label}
           </SelectButton>
         ))}
