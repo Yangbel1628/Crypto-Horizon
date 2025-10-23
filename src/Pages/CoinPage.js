@@ -18,18 +18,25 @@ const CoinPage = () => {
 
     const controller = new AbortController();
 
-    const fetchCoin = async () => {
+    // ✅ Fetch coin with retry logic for mobile/network issues
+    const fetchCoin = async (retry = 3) => {
       try {
         const { data } = await axios.get(SingleCoin(id), { signal: controller.signal });
         if (!data) {
           setError("Coin data not found.");
         } else {
           setCoin(data);
+          setError(null); // Clear previous errors if successful
         }
       } catch (err) {
-        if (err.name === "CanceledError") return;
-        console.error("Error fetching coin:", err);
-        setError("Failed to load coin data.");
+        if (err.name === "CanceledError") return; // Ignore aborted fetch
+        if (retry > 0) {
+          // Retry after 1 second
+          setTimeout(() => fetchCoin(retry - 1), 1000);
+        } else {
+          console.error("Error fetching coin:", err);
+          setError("Failed to fetch coin. Check your internet.");
+        }
       }
     };
 
@@ -37,7 +44,13 @@ const CoinPage = () => {
     return () => controller.abort();
   }, [id]);
 
-  if (error) return <div className="loader">{error}</div>;
+  // ✅ Render loading / error messages with optional retry button
+  if (error)
+    return (
+      <div className="loader">
+        {error} <button onClick={() => setCoin(null) || setError(null)}>Retry</button>
+      </div>
+    );
   if (!coin) return <div className="loader">Loading...</div>;
 
   return (
@@ -49,11 +62,15 @@ const CoinPage = () => {
         <div className="market-data">
           <p>Rank: {numberWithCommas(coin?.market_cap_rank)}</p>
           <p>
-            Current Price: {symbol} {numberWithCommas(coin?.market_data?.current_price[currency.toLowerCase()])}
+            Current Price: {symbol}{" "}
+            {numberWithCommas(coin?.market_data?.current_price[currency.toLowerCase()])}
           </p>
           <p>
             Market Cap: {symbol}{" "}
-            {numberWithCommas(coin?.market_data?.market_cap[currency.toLowerCase()].toString().slice(0, -6))}M
+            {numberWithCommas(
+              coin?.market_data?.market_cap[currency.toLowerCase()].toString().slice(0, -6)
+            )}
+            M
           </p>
         </div>
       </div>
