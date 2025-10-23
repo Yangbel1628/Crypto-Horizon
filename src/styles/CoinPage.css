@@ -1,0 +1,93 @@
+/* CoinPage.css */
+
+.coinpage-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    min-height: 80vh;
+    background: #1a1c20;
+    /* matches your banner gradient theme */
+    color: #fff;
+    flex-wrap: wrap;
+}
+
+.sidebar {
+    flex: 1 1 300px;
+    max-width: 350px;
+    background: #2e3035;
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(238, 188, 29, 0.2);
+}
+
+.sidebar .coin-image {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+.sidebar h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #eebc1d;
+}
+
+.sidebar p {
+    font-size: 0.95rem;
+    color: #c0c0c0;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.market-data {
+    margin-top: 1.5rem;
+    text-align: left;
+}
+
+.market-data p {
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+}
+
+.coininfo-container {
+    flex: 2 1 600px;
+    background: #2e3035;
+    border-radius: 15px;
+    padding: 1rem;
+    box-shadow: 0 0 20px rgba(238, 188, 29, 0.2);
+}
+
+/* Loader */
+.loader {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 2rem;
+    color: #eebc1d;
+}
+
+/* Chart buttons (days selection) */
+.chart-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .coinpage-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sidebar,
+    .coininfo-container {
+        max-width: 90%;
+    }
+}

@@ -1,0 +1,26 @@
+.select-button {
+    padding: 8px 16px;
+    margin: 4px;
+    border-radius: 8px;
+    border: 1px solid #2a2c35;
+    background-color: #1f2025;
+    color: #f5f5f5;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+    cursor: pointer;
+    transition: 0.3s all ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.select-button:hover {
+    background-color: #2a2c35;
+    border-color: #eebc1d;
+    color: #eebc1d;
+}
+
+.select-button.selected {
+    background-color: #eebc1d;
+    color: #1f2025;
+    border-color: #eebc1d;
+    font-weight: 700;
+}

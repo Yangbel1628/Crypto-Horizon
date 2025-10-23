@@ -1,0 +1,51 @@
+.coininfo-card {
+    background-color: #1b1c22;
+    border-radius: 20px;
+    padding: 25px;
+    margin: 30px auto;
+    max-width: 1000px;
+    box-shadow: 0 0 30px rgba(0, 255, 204, 0.3);
+}
+
+.chart-title {
+    color: #00ffcc;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.chart-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.select-button {
+    background-color: #111;
+    color: #00ffcc;
+    padding: 8px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.select-button.selected {
+    background-color: #00ffcc;
+    color: #111;
+    box-shadow: 0 0 15px #00ffcc;
+}
+
+.select-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px #00ffcc;
+}
+
+.loader {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #00ffcc;
+    padding: 50px 0;
+}

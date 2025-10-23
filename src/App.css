@@ -1,0 +1,99 @@
+/* === Banner.css (fixed white background issue) === */
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  /* Use dark fallback + ensure full image cover */
+  background-color: #14161a;
+  background-image:
+    linear-gradient(135deg, rgba(20, 22, 26, 0.85), rgba(20, 22, 26, 0.85)),
+    url("/man-8575459_1280.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  border-bottom: 2px solid #eebc1d;
+}
+
+/* keep text visible and smooth */
+.banner-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+/* Text styling */
+.tagline {
+  margin-bottom: 1.8rem;
+}
+
+.tagline .title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #fff;
+  text-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+}
+
+.tagline .subtitle {
+  font-size: 1.2rem;
+  margin-top: 0.3rem;
+  color: #c0c0c0;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Subtle golden overlay */
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(238, 188, 29, 0.12) 0%, transparent 70%);
+  z-index: 1;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .banner {
+    height: 60vh;
+  }
+
+  .tagline .title {
+    font-size: 2.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner {
+    height: 55vh;
+  }
+
+  .tagline .title {
+    font-size: 1.8rem;
+  }
+
+  .tagline .subtitle {
+    font-size: 0.9rem;
+  }
+}
