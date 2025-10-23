@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# 🚀 Crypto Horizon 🌌
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Website](https://img.shields.io/badge/Live%20Demo-Visit-blue)](https://crypto-horizon.vercel.app)
 
-## Available Scripts
+Welcome to **Crypto Horizon** — your one-stop playground to explore the world of **cryptocurrencies**! 💰✨  
 
-In the project directory, you can run:
+Track live prices, see trending coins, and explore the crypto market in **real time** — all with a sleek, interactive, and modern interface. Perfect for crypto enthusiasts who want to **stay ahead of the game**! ⚡📈
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🌟 Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- 🔥 **Live Cryptocurrency Prices** – Real-time updates of trending coins.  
+- 📊 **Market Trends** – See which coins are booming or dipping.  
+- 🎨 **Dark-Themed UI** – Smooth, sleek, and modern design.  
+- ⚡ **Fast & Responsive** – Works perfectly on desktop and mobile.  
+- 🖥️ **Built with React.js** – Modern front-end technology.  
+- 🎉 **Fun Animations & Interactions** – Smooth transitions to make browsing enjoyable.  
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 💻 Tech Stack
 
-### `npm run build`
+- **Frontend:** React.js, CSS3  
+- **API:** CoinGecko API for live cryptocurrency data  
+- **Deployment:** Vercel  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🌐 Live Demo
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Check it out here: 🌟 [Crypto Horizon Live](https://crypto-horizon.vercel.app)  
 
-### `npm run eject`
+> Try clicking around and watching the crypto market come alive! 🚀💸
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🖼️ Screenshots
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![Home]<img width="1892" height="897" alt="Screenshot 2025-10-24 001016" src="https://github.com/user-attachments/assets/f89be767-b742-48ae-a1ad-5dd4d4bf2527" />
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![Trending Coins]<img width="1873" height="883" alt="Screenshot 2025-10-24 001032" src="https://github.com/user-attachments/assets/8d701899-85a8-43ed-8d41-14bc04eb288d" />
+ 
+---
 
-## Learn More
+## 🚀 How to Run Locally
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+# Clone the repo
+git clone https://github.com/Yangbel1628/Crypto-Horizon.git
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Go to project folder
+cd Crypto-Horizon
 
-### Code Splitting
+# Install dependencies
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Run the project
+npm start
